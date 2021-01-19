@@ -24,7 +24,7 @@ int is_palindrome(listint_t **head)
 	s = x / 2;
 	s++, x = x - 2;
 
-	while (ct <= s)
+	while (ct < s)
 	{
 		if (aux1->n != aux->n)
 			return (0);
