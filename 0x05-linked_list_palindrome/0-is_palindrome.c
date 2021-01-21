@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "lists.h"
+int recursion(listint_t **node_i, listint_t *node_j);
 
 /**
  * is_palindrome - prints all elements of a listint_t list
@@ -9,32 +10,37 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *aux, *aux1;
-	int x = 1, t = 0, s = 0, ct = 0;
+	listint_t *head_copy = *head;
 
-	aux1 = *head;
-	aux = *head;
-
-	if (*head == NULL)
+	if (head == NULL || *head == NULL)
 		return (1);
 
-	while (aux1->next != NULL)
-		aux1 = aux1->next, x++;
+	return (recursion(&head_copy, *head));
+}
 
-	s = x / 2, s--;
-	s++, x = x - 2;
+/**
+ * recursion - function to compare two nodes
+ *
+ * @head: node to compare since the first node
+ * @aux: node to compare since the last node
+ *
+ * Return: 1 if the nodes are equal. 0 if not.
+ */
+int recursion(listint_t **head, listint_t *aux)
+{
+	int prev_result;
 
-	while (ct < s)
+	if (aux->next != NULL)
+		prev_result = recursion(head, aux->next);
+	else
+		prev_result = 1;
+
+
+	if (prev_result == 1 && (*head)->n == aux->n)
 	{
-		if (aux1->n != aux->n)
-			return (0);
-
-		aux1 = *head;
-
-		for (t = 0; t < x; t++)
-			aux1 = aux1->next;
-
-		x--, ct++, aux = aux->next;
+		*head = (*head)->next;
+		return (1);
 	}
-	return (1);
+	else
+		return (0);
 }
