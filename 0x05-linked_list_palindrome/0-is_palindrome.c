@@ -21,7 +21,7 @@ int is_palindrome(listint_t **head)
 	while (aux1->next != NULL)
 		aux1 = aux1->next, x++;
 
-	s = x / 2;
+	s = x / 2, s--;
 	s++, x = x - 2;
 
 	while (ct < s)
