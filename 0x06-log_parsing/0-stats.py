@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """ log parsing """
 import sys
-import traceback
 
 
 status = {
@@ -30,9 +29,8 @@ try:
             for key, value in sorted(status.items()):
                 if value != 0:
                     print("{}: {}".format(key, value))
-except KeyboardInterrupt as err:
+finally:
     print("File size: {}".format(total_size))
     for key, value in sorted(status.items()):
         if value != 0:
             print("{}: {}".format(key, value))
-    traceback.print_exc()
