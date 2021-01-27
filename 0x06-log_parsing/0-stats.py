@@ -18,7 +18,7 @@ contador = 0
 total_size = 0
 try:
     for line in sys.stdin:
-        contador+=1
+        contador += 1
         x = line.split()
         total_size += int(x[8])
         for i in status:
@@ -27,12 +27,12 @@ try:
         if contador == 10:
             contador = 0
             print("File size: {}".format(total_size))
-            for key, value in sorted (status.items()):
+            for key, value in sorted(status.items()):
                 if value != 0:
                     print("{}: {}".format(key, value))
 except KeyboardInterrupt as err:
     print("File size: {}".format(total_size))
-    for key, value in sorted (status.items()):
+    for key, value in sorted(status.items()):
         if value != 0:
             print("{}: {}".format(key, value))
     traceback.print_exc()
