@@ -19,17 +19,16 @@ try:
     for line in sys.stdin:
         contador += 1
         x = line.split()
-        if len(x) > 2:
-            total_size += int(x[8])
-            for i in status:
-                if int(x[7]) == i:
-                    status[i] += 1
-            if contador == 10:
-                contador = 0
-                print("File size: {}".format(total_size))
-                for key, value in sorted(status.items()):
-                    if value != 0:
-                        print("{}: {}".format(key, value))
+        total_size += int(x[8])
+        for i in status:
+            if int(x[7]) == i:
+                status[i] += 1
+        if contador == 10:
+            contador = 0
+            print("File size: {}".format(total_size))
+            for key, value in sorted(status.items()):
+                if value != 0:
+                    print("{}: {}".format(key, value))
 finally:
     print("File size: {}".format(total_size))
     for key, value in sorted(status.items()):
