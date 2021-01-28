@@ -24,3 +24,4 @@ finally:
     print("{}: {}".format("File size", size))
     for key in sorted(res.keys()):
         if res[key] != 0:
+            print("{}: {}".format(key, res[key]))
