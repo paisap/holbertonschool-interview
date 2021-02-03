@@ -16,7 +16,7 @@ int check_cycle(listint_t *list)
 	if (list == NULL)
 		return (0);
 
-	while (aux1->next && aux1->next->next)
+	while (aux1 && aux1->next)
 	{
 		if (aux1 == aux)
 			return (1);
