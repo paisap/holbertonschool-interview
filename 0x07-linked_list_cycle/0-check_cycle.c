@@ -11,7 +11,6 @@ int check_cycle(listint_t *list)
 {
 	listint_t *aux1;
 
-	
 	if (list == NULL)
 		return (0);
 
