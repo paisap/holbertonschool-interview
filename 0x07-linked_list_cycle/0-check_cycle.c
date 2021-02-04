@@ -9,17 +9,18 @@
 */
 int check_cycle(listint_t *list)
 {
-	listint_t *aux, *aux1;
+	listint_t *aux1;
 
-	aux = list;
-	aux1 = list->next;
+	
 	if (list == NULL)
 		return (0);
-	while (aux->next && aux1->next->next)
+
+	aux1 = list->next;
+	while (list->next && aux1->next->next)
 	{
-		if (aux1 > aux || aux1 == aux)
+		if (aux1 > list || aux1 == list)
 			return (1);
-		aux = aux->next;
+		list = list->next;
 		aux1 = aux1->next->next;
 	}
 	return (0);
