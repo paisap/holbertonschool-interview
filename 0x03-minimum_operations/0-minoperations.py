@@ -20,4 +20,3 @@ def minOperations(n):
     if n > 1:
         suma += n
     return suma
-
