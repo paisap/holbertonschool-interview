@@ -1,9 +1,9 @@
 #include "search_algos.h"
 
 /**
-* ADVANCED_BINARY - Checks if is palindrome
+* advanced_binary - Checks if is palindrome
 * @array: puntero.
-* @size_t: size.
+* @size: the size.
 * @value: valor a buscar
 * Return: 1 if n is a palindrome, and 0 otherwise.
 */
